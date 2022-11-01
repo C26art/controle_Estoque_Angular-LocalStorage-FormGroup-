@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nome": "Laranja",
+      "quantidade": 54,
+      "fornecedor": "Hortfruit",
+      "validade": "23/05/2023",
+      "categoria": "Frutas"
+    }
+  ]
+}

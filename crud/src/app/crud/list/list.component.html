@@ -1,0 +1,25 @@
+<h1>Cruds</h1>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Status</th>
+    <th>Quantidade</th>
+    <th>Fornecedor</th>
+    <th>Validade</th>
+    <th>Categoria</th>
+    <th colspan="2">Gerenciar</th>
+  </tr>
+  <tr *ngFor="let crud of cruds">
+    <td>{{ crud.nome }}</td>
+    <td>{{ crudStatusLabel(crud.status) }}</td>
+    <td>{{ crud.quantidade }}</td>
+    <td>{{ crud.fornecedor }}</td>
+    <td>{{ crud.validade | date: "dd/MM/yyyy HH:mm":"-03:00" }}</td>
+    <td>{{ crud.categoria }}</td>
+    <td class="material-icons">edit</td>
+    <td class="material-icons">delete</td>
+  </tr>
+  <tr *ngIf="!cruds?.length">
+    <td colspan="6">Sem crud cadstrados</td>
+  </tr>
+</table>

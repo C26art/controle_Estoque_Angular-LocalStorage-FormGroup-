@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-card-title>Novo Produto</mat-card-title>
+  <form [formGroup]="crudForm" (submit)="cadastrar()">
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="nome" placeholder="nome:" required />
+    </mat-form-field>
+    <mat-error *ngIf="nomeProduto.errors?.['required']">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        formControlName="quantidade"
+        placeholder="quantidade:"
+        required
+      />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        formControlName="fornecedor"
+        placeholder="fornecedor:"
+        required
+      />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        formControlName="validade"
+        placeholder="validade:"
+        required
+      />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        formControlName="categoria"
+        placeholder="categoria:"
+        required
+      />
+    </mat-form-field>
+    <mat-error *ngIf="false">
+      <span style="color: red">Campo Obrigatório</span>
+    </mat-error>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="crudForm.status != 'VALID'"
+    >
+      Cadastrar Produto
+    </button>
+    <p>{{ nomeProduto.value }}</p>
+  </form>
+</mat-card>
