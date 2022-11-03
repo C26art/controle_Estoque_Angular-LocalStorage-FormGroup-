@@ -27,7 +27,7 @@ export class ListComponent implements OnInit {
     private domSanitizer: DomSanitizer,) {
       this.matIconRegistry.addSvgIcon(
         "kickstarter",
-        this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/kickstarter.svg"))
+        this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/kickstarter.svg"));
      }
 
   ngOnInit(): void {
