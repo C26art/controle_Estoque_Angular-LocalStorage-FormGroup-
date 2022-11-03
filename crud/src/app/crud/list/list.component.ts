@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatTableDataSource } from '@angular/material/table';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 
 import { CrudStatusLabel } from '../enuns/status.enum';
@@ -24,7 +25,8 @@ export class ListComponent implements OnInit {
 
   constructor(private crudService: CrudService,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,) {
+    private domSanitizer: DomSanitizer,
+    private router: Router) {
       this.matIconRegistry.addSvgIcon(
         "kickstarter",
         this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/kickstarter.svg"));
@@ -46,6 +48,8 @@ export class ListComponent implements OnInit {
     return CrudStatusLabel.get(status)!;
   }
   alterarStatus(id:string) {}
-  editar(id:string) {}
+  editar(id:string): void {
+    this.router.navigate(["/products/edit",id]);
+  }
 
 }

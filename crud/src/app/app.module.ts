@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,6 +20,7 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { CreateComponent } from './crud/create/create.component';
+import { EditComponent } from './crud/edit/edit.component';
 import { ListComponent } from './crud/list/list.component';
 import { CrudService } from './services/crud.service';
 import { HomeComponent } from './views/home/home.component';
@@ -34,6 +36,7 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
     HomeComponent,
     ProductCrudComponent,
     ListComponent,
+    EditComponent,
 
   ],
   imports: [
@@ -52,7 +55,8 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
     MatInputModule,
     MatTableModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ import { ProductModel } from '../product.model';
 export class CreateComponent implements OnInit {
 
   crudForm!: FormGroup;
+  msg!: string;
 
 
   constructor(private formBuilder: FormBuilder, private crudService: CrudService) { }
@@ -34,6 +35,8 @@ export class CreateComponent implements OnInit {
     crud.validade = new Date();
     crud.status = ProductStatus.PENDENTE
     this.crudService.cadastrar(crud);
+
+    this.msg = "Cadastrado com sucesso!"
   }
   get nomeProduto() {return this.crudForm.get("nome")!}
 }
