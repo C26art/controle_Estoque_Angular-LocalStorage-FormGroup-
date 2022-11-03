@@ -1,7 +1,7 @@
 import { ProductStatus } from "./enuns/status.enum";
 
 export interface ProductModel {
-  id?: string,
+  id: string,
   nome: string,
   status: ProductStatus,
   quantidade: number,

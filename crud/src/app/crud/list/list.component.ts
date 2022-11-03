@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { MatTableDataSource } from '@angular/material/table';
+import { DomSanitizer } from '@angular/platform-browser';
 import { CrudService } from 'src/app/services/crud.service';
 
 import { CrudStatusLabel } from '../enuns/status.enum';
@@ -13,12 +16,23 @@ import { ProductModel } from '../product.model';
 export class ListComponent implements OnInit {
 
   cruds!: ProductModel[];
+  displayedColumns: string[] = ['nome', 'status', 'quantidade', 'fornecedor', 'validade', 'categoria', 'edit', 'remove'];
+  dataSource!: MatTableDataSource<ProductModel>;
+
+  clickedRow!: ProductModel;
 
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,) {
+      this.matIconRegistry.addSvgIcon(
+        "kickstarter",
+        this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/kickstarter.svg"))
+     }
 
   ngOnInit(): void {
-    this.cruds = this.crudService.listar()
+    this.cruds = this.crudService.listar();
+    this.dataSource = new MatTableDataSource(this.cruds);
   }
   listar(): ProductModel[] {
     return this.cruds;
@@ -31,7 +45,7 @@ export class ListComponent implements OnInit {
   crudStatusLabel(status:number):string {
     return CrudStatusLabel.get(status)!;
   }
-  alterarStatus() {}
-  editar() {}
+  alterarStatus(id:string) {}
+  editar(id:string) {}
 
 }
